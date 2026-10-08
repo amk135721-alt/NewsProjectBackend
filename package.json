@@ -26,13 +26,5 @@
     "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^10.0.10",
     "redis": "^6.2.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amk135721-alt/NewsBackend.git"
-  },
-  "bugs": {
-    "url": "https://github.com/amk135721-alt/NewsBackend/issues"
-  },
-  "homepage": "https://github.com/amk135721-alt/NewsBackend#readme"
+  }
 }
