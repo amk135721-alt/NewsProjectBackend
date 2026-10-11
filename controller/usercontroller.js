@@ -10,23 +10,26 @@ export const createUser = async (req, res) => {
     try {
         const { name, email, password } = req.body
         console.log(name, email, password)
-          await client.del("newsusers")
+        
+        await client.del("newsusers")
+        
         const checkUser = await projectmodel.findOne({ email })
         if (checkUser) {
-            res.json({ success: false, message: "User already exist" })
+            return res.json({ success: false, message: "User already exist" }) // Added return
         }
+        
         const encrypass = await bcrypt.hash(password, 10)
         const storeUser = await projectmodel.create({ name, email, password: encrypass })
+        
         if (!storeUser) {
-            res.json({ success: false, message: "User not created" })
+            return res.json({ success: false, message: "User not created" }) // Added return
         }
 
-        res.json({ success: true, message: "User Created successfully", data: storeUser })
+        return res.json({ success: true, message: "User Created successfully", data: storeUser }) // Added return
 
     } catch (error) {
-        res.json({ success: false, message: "error" })
+        return res.json({ success: false, message: error.message })
     }
-
 }
 
 
