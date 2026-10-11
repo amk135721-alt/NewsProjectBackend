@@ -24,7 +24,7 @@ export const createUser = async (req, res) => {
         res.json({ success: true, message: "User Created successfully", data: storeUser })
 
     } catch (error) {
-        res.json({ success: false, message: error.message })
+        res.json({ success: false, message: "error" })
     }
 
 }
